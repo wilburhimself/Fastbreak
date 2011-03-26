@@ -1,5 +1,5 @@
 <?php
-define('SITEURL', 'http://localhost/fastbreak/'); // The URL for your application
+define('SITEURL', 'http://localhost/jobs/'); // The URL for your application
 
 define('DIRSEP', DIRECTORY_SEPARATOR);
 $site_path = realpath(dirname(__FILE__).DIRSEP).DIRSEP;

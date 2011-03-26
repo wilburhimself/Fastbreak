@@ -1,0 +1,73 @@
+* {
+                margin: 0;
+                padding: 0;
+            }
+            body {
+                line-height: 1.3;
+                font-size: 62.3%;
+                font-family: Tahoma, sans-serif;
+                color: #000;
+                background: #ddd;
+            }
+            div#wrap {
+                font-size: 1.2em;
+                width: 760px;
+                margin: 0 auto;
+            }
+            div#main-content {
+                background: #fff;
+                border: 3px solid #bbb;
+                border-top: none;
+                width: 500px;
+                float: left;
+            }
+            div#header {
+                padding-left: 30px;
+                margin: 20px 20px 30px;
+                border-bottom: 1px solid #ddd;
+            }
+            h1 {
+                font-size: 24px;
+                padding-bottom: 6px;
+            }
+            p {
+                padding-bottom: 12px;
+            }
+            div#instructions {
+                margin: 0 20px 30px;
+            }
+            ol {
+                list-style-type: decimal;
+                font-size: 18px;
+                margin: 22px 0 0 0;
+            }
+            ol li {
+                color: #bbb;
+                padding-bottom: 16px;
+            }
+            ol li p {
+                color: #111;
+            }
+            div#sidebar {
+                float: left;
+                padding: 16px;
+            }
+            #sidebar h3 {
+                border-bottom: 1px solid #bbb;
+                padding-bottom: 12px;
+                margin-bottom: 16px;
+            }
+            ul {
+                list-style: none;
+                margin-bottom: 22px;
+            }
+            ul li {
+                padding-bottom: 5px;
+            }
+
+.item {
+    box-shadow: 4px 4px 4px rgba(100, 100, 130, 0.1);
+    padding: 11px 22px;
+    border: 1px solid #ddd;
+    margin-bottom: 22px;
+}
