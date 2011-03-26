@@ -1,7 +1,8 @@
 <?php
 class router {
     private $path; // ruta de los controladores
-    private $args = array(); // argumentos que se le pasan al controlador vía GET
+    private $params;
+    private $args = array(); // argumentos que se le pasan al controlador vï¿½a GET
 
     public function __construct($routes) {
         #require_once CONFIGPATH.'routes.php';
@@ -86,7 +87,7 @@ class router {
         $route = $this->_get_route();
         $route = explode('/', $route);
 
-        // borrar las partes vacías de route
+        // borrar las partes vacï¿½as de route
         foreach($route as $key => $r) {
             if($route[$key] == '') {
                 unset($route[$key]);
@@ -99,7 +100,7 @@ class router {
     }
     
     private function get_controller() {
-        if(!$this->route_parts[0]) {
+        if(empty($this->route_parts[0])) {
             $this->controller = DEFAULT_CONTROLLER;
         } else {
             $this->controller = $this->route_parts[0];
@@ -108,7 +109,7 @@ class router {
     }
     
     private function get_action() {
-        if(!$this->route_parts[1]) {
+        if(empty($this->route_parts[1])) {
             $this->action = 'index';
         } else {
             $this->action = $this->route_parts[1];
@@ -118,7 +119,6 @@ class router {
     
     private function get_params() {
         if(sizeof($this->route_parts) > 0) {
-
             $this->params = $this->route_parts;
         }
     }
