@@ -5,7 +5,7 @@ class router {
     private $args = array(); // argumentos que se le pasan al controlador v�a GET
 
     public function __construct($routes) {
-        #require_once CONFIGPATH.'routes.php';
+
         $this->routes = $routes;
         $this->uri_string = key($_GET);
         $this->uri_string = substr($this->uri_string, 1);
@@ -17,7 +17,6 @@ class router {
      *
      */
     private function set_path($path) {
-        #$path = trim($path, '/\\');
         if(!is_dir($path)) {
             exit('Ruta Invalida para el controlador');
         }
@@ -25,13 +24,6 @@ class router {
     }
     
     public function delegate() {
-        /*$cache = new Cache;
-        if ($cache->cache_file_exists()) {
-            include CACHEPATH.$cache->filename;
-            exit();
-        }*/
-
-
         $this->get_parts();
         $file = $this->path.'controller_'.$this->controller.'.php';
         if(!is_file($file) or !is_readable($file)) {
@@ -42,7 +34,6 @@ class router {
         
         $cont = 'controller_'.$this->controller;
         $controller = new $cont;
-        
         $controller->clas = $this->controller;
         $controller->view = $this->controller.DIRECTORY_SEPARATOR.$this->action;
         if(is_callable(array($controller, $this->action) == false)) {
@@ -77,10 +68,9 @@ class router {
                     $v = preg_replace('#^'.$key.'$#', $action, $request);
                     return $v;
                 }
-            } else {
-                return $request;
             }
         }
+        return $request;
     }
 
     private function get_parts() {
@@ -100,7 +90,8 @@ class router {
     }
     
     private function get_controller() {
-        if(empty($this->route_parts[0])) {
+
+        if(!isset($this->route_parts[0])) {
             $this->controller = DEFAULT_CONTROLLER;
         } else {
             $this->controller = $this->route_parts[0];
@@ -109,7 +100,7 @@ class router {
     }
     
     private function get_action() {
-        if(empty($this->route_parts[1])) {
+        if(!isset($this->route_parts[1])) {
             $this->action = 'index';
         } else {
             $this->action = $this->route_parts[1];

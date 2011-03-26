@@ -8,23 +8,24 @@
             if ($field['type'] == "string" || $field['type'] == "text") {
                 $form[] = '<p>'.create_field($label, $field['type'], $model->$label).'</p>';
             } elseif ($field['type'] == 'foreign') {
-                $form[] = '<p>'.collection_select($model, new $field['class'], $field['label'], $field['display']).'</p>';
+                $form[] = '<p>'.collection_select($model, $field).'</p>';
             }
         }
         if (isset($model->id)) {
-            $form[] = '<input type="hidden" name="id" value="'.$model->id.'" />';
+            $form[] = '<input type="hidden" name="object[id]" value="'.$model->id.'" />';
         }
         return join("\n", $form);
     }
 
-    function collection_select($instance, $object, $label, $display) {
-        $output = '<label for="object_'.$label.'">'.ucwords($label).'</label>';
-        $output .= '<select name="object['.$label.']" id="object_'.$label.'">';
+    function collection_select($instance, $field) {
+        $output = '<label for="object_'.$field['label'].'">'.ucwords($field['label']).'</label>';
+        $output .= '<select name="object['.$field['field_name'].']" id="object_'.$field['field_name'].'">';
+            $object = new $field['class'];
             $p = $object->get();
             foreach ($p as $option) {
                 $output .= '<option value="'.$option->id.'"';
-                    if ($option->id == $instance->$label) $output .= ' selected="selected" ';
-                $output .= '>'.$option->$display.'</option>';
+                    if ($option->id == $instance->$field['field_name']) $output .= ' selected="selected" ';
+                $output .= '>'.$option->$field['display'].'</option>';
             }
         $output .= '</select>';
         return $output;

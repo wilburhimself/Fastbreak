@@ -180,6 +180,16 @@
                 return true;
             }
         }
+
+        public function save($data) {
+            if (!empty($data['id'])) {
+                $this->id = $data['id'];
+                unset($data['id']);
+                return $this->update($data);
+            } else {
+                return $this->create($data);
+            }
+        }
         
     }
 ?>
