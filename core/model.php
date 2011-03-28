@@ -83,6 +83,9 @@
         }
         
         public function __get($name) {
+            if (is_string($this->properties[$name])) {
+                return htmlentities($this->properties[$name]);
+            }
             return $this->properties[$name];
         }
         
@@ -127,7 +130,7 @@
             if (empty($this->has_many)) return false;
             foreach ($this->has_many as $call_name => $entity) {
                 $e = new $entity;
-                $this->$call_name = $e->{"find_by_".$this->type.'_id'}($this->id); 
+                $this->$call_name = $e->{"find_by_".$this->type.'_id'}($this->id);
             }
         }
 
@@ -135,7 +138,6 @@
             if (empty($this->belongs_to)) return false;
             foreach ($this->belongs_to as $call_name => $entity) {
                 $e = new $entity;
-
                 $e->where('id='.$this->{$call_name.'_id'});
                 $x = $e->get();
                 $this->$call_name = $x[0];

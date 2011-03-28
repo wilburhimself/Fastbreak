@@ -1,11 +1,10 @@
 <?php
 class router {
-    private $path; // ruta de los controladores
+    private $path; // Controller's routes
     private $params;
-    private $args = array(); // argumentos que se le pasan al controlador v�a GET
+    private $args = array(); // Action's arguments
 
     public function __construct($routes) {
-
         $this->routes = $routes;
         $this->uri_string = key($_GET);
         $this->uri_string = substr($this->uri_string, 1);
@@ -13,7 +12,7 @@ class router {
     }
     /*
      *
-     * Especifica la ruta donde se encuentran los controladores 
+     *  Specifies a path for controllers folder
      *
      */
     private function set_path($path) {
@@ -25,7 +24,7 @@ class router {
     
     public function delegate() {
         $this->get_parts();
-        $file = $this->path.'controller_'.$this->controller.'.php';
+        $file = $this->path.$this->controller.'.php';
         if(!is_file($file) or !is_readable($file)) {
             // redirect_to('error', 'no_encontrada');
         } else {
@@ -77,7 +76,7 @@ class router {
         $route = $this->_get_route();
         $route = explode('/', $route);
 
-        // borrar las partes vac�as de route
+        // Erases empty parts
         foreach($route as $key => $r) {
             if($route[$key] == '') {
                 unset($route[$key]);

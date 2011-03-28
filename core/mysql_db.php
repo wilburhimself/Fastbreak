@@ -1,6 +1,7 @@
 <?php
 class mysql_db {
     private $conn;
+    public static $queries_count = 0;
     
     public function __construct() {
 		$this->conn = mysql_connect(DBHOST, DBUSERNAME, DBPASSWORD) or die(mysql_error());
@@ -57,7 +58,7 @@ class mysql_db {
             $query .= " LIMIT ".(($_GET['page'] - 1) * ROWSPERPAGE).", ".ROWSPERPAGE;
         }
         if(isset($p['debug'])) {
-            echo $query;
+            print $query;
         }
 	    return $this->query($query);
     }
@@ -67,6 +68,7 @@ class mysql_db {
         if(!$result = mysql_query($sql)) {
             trigger_error('Error en el query: '. mysql_error($this->conn));
         }
+            self::$queries_count += 1;
             return new mysql_result($this->conn, $result);
         }
     
