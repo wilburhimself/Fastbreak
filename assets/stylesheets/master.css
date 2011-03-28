@@ -1,73 +1,76 @@
 * {
-                margin: 0;
-                padding: 0;
-            }
-            body {
-                line-height: 1.3;
-                font-size: 62.3%;
-                font-family: Tahoma, sans-serif;
-                color: #000;
-                background: #ddd;
-            }
-            div#wrap {
-                font-size: 1.2em;
-                width: 760px;
-                margin: 0 auto;
-            }
-            div#main-content {
-                background: #fff;
-                border: 3px solid #bbb;
-                border-top: none;
-                width: 500px;
-                float: left;
-            }
-            div#header {
-                padding-left: 30px;
-                margin: 20px 20px 30px;
-                border-bottom: 1px solid #ddd;
-            }
-            h1 {
-                font-size: 24px;
-                padding-bottom: 6px;
-            }
-            p {
-                padding-bottom: 12px;
-            }
-            div#instructions {
-                margin: 0 20px 30px;
-            }
-            ol {
-                list-style-type: decimal;
-                font-size: 18px;
-                margin: 22px 0 0 0;
-            }
-            ol li {
-                color: #bbb;
-                padding-bottom: 16px;
-            }
-            ol li p {
-                color: #111;
-            }
-            div#sidebar {
-                float: left;
-                padding: 16px;
-            }
-            #sidebar h3 {
-                border-bottom: 1px solid #bbb;
-                padding-bottom: 12px;
-                margin-bottom: 16px;
-            }
-            ul {
-                list-style: none;
-                margin-bottom: 22px;
-            }
-            ul li {
-                padding-bottom: 5px;
-            }
-
-.item {
-    box-shadow: 4px 4px 4px rgba(100, 100, 130, 0.1);
-    padding: 11px 22px;
-    border: 1px solid #ddd;
-    margin-bottom: 22px;
+  margin: 0;
+  padding: 0;
 }
+body {
+  line-height: 1.3;
+  font-size: 62.3%;
+  font-family: Tahoma, sans-serif;
+  color: #000000;
+  padding-top: 8px;
+  background: #dddddd url(http://static.tumblr.com/l3zugnz/YbHkvwe99/postage.png) repeat-x 0 0;
+}
+body h1 {
+  font-size: 24px;
+  padding-bottom: 6px;
+}
+body p { padding-bottom: 12px; }
+body ol {
+  list-style-type: decimal;
+  font-size: 18px;
+  margin: 22px 0 0 0;
+}
+body ol li {
+  color: #bbbbbb;
+  padding-bottom: 16px;
+}
+body ol li p { color: #111111; }
+body ul {
+  list-style: none;
+  margin-bottom: 22px;
+}
+#wrap {
+  font-size: 1.3em;
+  width: 760px;
+  margin: 0 auto;
+}
+#wrap #header {
+  padding: 30px 0 0 30px;
+  margin: 0 0 30px;
+  border-bottom: 1px solid #dddddd;
+}
+#wrap #main-content {
+  background: #ffffff;
+  border: 3px solid #bbbbbb;
+  border-top: none;
+}
+#wrap #main-content #instructions { margin: 0 20px 30px; }
+#wrap #main-content #instructions .job-form p { padding-bottom: 18px; }
+#wrap #main-content #instructions .job-form p label {
+  display: block;
+  font-weight: bold;
+}
+#wrap #main-content #instructions .job-form p textarea {
+  padding: 4px;
+  width: 450px;
+}
+#wrap #main-content #instructions .job-form p input[type=text] {
+  padding: 4px;
+  width: 450px;
+}
+#wrap #main-content #instructions .job-form p textarea { height: 200px; }
+#wrap #main-content #instructions .item { border-bottom: 1px dotted #f0f0f0; }
+#wrap #main-content #instructions .item a {
+  padding: 11px 22px;
+  display: block;
+  text-decoration: none;
+  color: #999999;
+}
+#wrap #main-content #instructions .item a:hover { background: #f0f0f0; }
+#wrap #main-content #instructions .item a span { color: #000000; }
+#wrap #main-content #instructions .item a .location {
+  font-weight: bold;
+  margin-right: 12px;
+}
+#wrap #main-content #instructions .item a .title { text-decoration: underline; }
+#wrap #main-content #instructions .item a .posted-in { float: right; }
