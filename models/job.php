@@ -13,7 +13,7 @@
                     'label' => 'Descripción',
                     'type' => 'text'
                 ),
-                'category' => array(
+                'category_id' => array(
                     'label' => 'Categoría',
                     'type' => 'foreign',
                     'class' => 'Category',

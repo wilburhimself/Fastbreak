@@ -1,5 +1,5 @@
 <?php
-class controller_jobs extends Controller_base {
+class controller_jobs extends Controller {
     public function __construct() {
         parent::__construct();
     }

@@ -1,0 +1,1 @@
+<li><?php print anchor($object->name, 'categories/show/'.$object->name); ?></li>

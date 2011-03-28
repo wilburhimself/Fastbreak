@@ -1,4 +1,4 @@
-<DOCTYPE html>
+<!DOCTYPE html>
 
 <html>
     <head>
@@ -20,11 +20,13 @@
             </div>
 
             <div id="sidebar">
-                <h3>Join the community</h3>
+                <h3>Categorias de trabajos</h3>
                 <ul>
-                    <li><a href="#">Mailing list</a></li>
-                    <li><a href="#">Official Weblog</a></li>
-                    <li><a href="#">Wiki</a></li>
+                    <?php
+                        $cat = new Category;
+                        $list = $cat->get_non_empty();
+                    ?>
+                    <?php print partial_collection($list, 'categories/menu_item'); ?>
                 </ul>
 
                 <h3>Browse the documentation</h3>
@@ -37,6 +39,7 @@
             </div>
 
         </div>
+    <?php print mysql_db::$queries_count; ?>
     </body>
 </html>
 
