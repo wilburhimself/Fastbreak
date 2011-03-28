@@ -39,12 +39,12 @@ body ul {
   margin: 0 0 30px;
   border-bottom: 1px solid #dddddd;
 }
-#wrap #main-content {
+#wrap #main-content #instructions {
   background: #ffffff;
-  border: 3px solid #bbbbbb;
-  border-top: none;
+  border: 1px solid #bbbbbb;
+  padding: 22px;
+  margin: 0 20px 30px;
 }
-#wrap #main-content #instructions { margin: 0 20px 30px; }
 #wrap #main-content #instructions .job-form p { padding-bottom: 18px; }
 #wrap #main-content #instructions .job-form p label {
   display: block;
@@ -74,3 +74,8 @@ body ul {
 }
 #wrap #main-content #instructions .item a .title { text-decoration: underline; }
 #wrap #main-content #instructions .item a .posted-in { float: right; }
+#wrap #main-content #instructions .category-block {
+  border-top: 3px solid #444444;
+  padding-top: 9px;
+}
+#wrap #main-content #instructions .category-block h3 { font-size: 1.5em; }
