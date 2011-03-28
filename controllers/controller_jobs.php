@@ -11,8 +11,9 @@ class controller_jobs extends Controller {
     public function save() {
         $j = new Job;
         $job = $this->Request->object;
+        print_r($job);
         $j->save($job);
-        redirect('');
+        #redirect('');
     }
 
     public function edit($params) {

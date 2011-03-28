@@ -11,7 +11,7 @@
 
             <div id="main-content">
                 <div id="header">
-                    <h1>Trabajos de tecnología</h1>
+                    <h1><?php print anchor('Trabajos de tecnología', ''); ?></h1>
                     <p>Your Fastbreak application is running.</p>
                 </div>
                 <div id="instructions">
