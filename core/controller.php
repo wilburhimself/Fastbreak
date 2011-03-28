@@ -63,8 +63,9 @@ Abstract class Controller {
             }
             $this->endtime = microtime(true);
             $time = $this->endtime - $this->starttime;
-            print $time;
             print $output;
+
+            print $time;
         }
     }
 }

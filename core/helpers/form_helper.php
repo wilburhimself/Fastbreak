@@ -6,7 +6,7 @@
         }
         foreach ($model->fields as $label => $field) {
             if ($field['type'] == "string" || $field['type'] == "text") {
-                $form[] = '<p>'.create_field($label, $field['type'], $model->$label).'</p>';
+                $form[] = '<p>'.create_field($label, $field, $model->$label).'</p>';
             } elseif ($field['type'] == 'foreign') {
                 $form[] = '<p>'.collection_select($model, $field).'</p>';
             }
@@ -32,16 +32,16 @@
 
     }
 
-    function create_field($label, $type, $value="") {
+    function create_field($label, $field, $value="") {
         if ($value == "" && isset($_POST['object'][$label])) {
             $value = $_POST['object'][$label];
         }
 
-        $output = '<label for="object_'.$label.'">'.ucwords($label).'</label>';
-        if ($type == 'string') {
+        $output = '<label for="object_'.$label.'">'.ucwords($field['label']).'</label>';
+        if ($field['type'] == 'string') {
             $output .= '<input id="object_'.$label.'" type="text" value="'.$value.'" name="object['.$label.']" />';
         }
-        if ($type == 'text') {
+        if ($field['type'] == 'text') {
             $output .= '<textarea name="object['.$label.']" id="object_'.$label.'">'.$value.'</textarea>';
         }
         return $output;

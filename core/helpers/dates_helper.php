@@ -1,6 +1,7 @@
 <?php
 function timeformat($format, $time) {
     $formats = array(
+        'day' => '%d de %B',
         'short' => '%A %d de %B',
         'long' => '%A %d de %B a las %I:%M',
         'datetime' => '%Y-%m-%d %H:%M:%S',
