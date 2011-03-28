@@ -21,7 +21,7 @@ function load_helper($helper) {
         require_once HELPERSPATH.$helper.'_helper.php';
     }
 }
-// obtiene la conexión existente a la base de datos
+// obtiene la conexiï¿½n existente a la base de datos
 // si no existe la crea!
 function get_db() {
     global $db;
@@ -42,17 +42,17 @@ function partial_collection($data, $view, $extra_vars=array()) {
     $on = isset($extra_vars['object_name']) ? $extra_vars['object_name'] : 'object';
     $current = '';
     $current_reverse = sizeof($data);
-    foreach ($data as $on) {
+    foreach ($data as $$on) {
         $current++;
-        $on->load_related();
+        $$on->load_related();
         $t = new Template($view);
-        $t->object = $on;
+        $t->object = $$on;
         $t->extra = $extra_vars;
         $t->current = $current;
         $t->current_reverse = $current_reverse;
         $output .= $t->render();
-
         $current_reverse--;
+        if (isset($extra_vars['limit']) and $extra_vars['limit'] == $current) break;
     }
     return $output;
 }
