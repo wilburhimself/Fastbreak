@@ -81,11 +81,12 @@ class mysql_db {
     }
 	
     function insert($dataNames, $dataValues, $tableName) {
+    $sqlValues = '';
 	$sqlNames = "INSERT INTO ".$tableName. "(";
 	for($x=0; $x < count($dataNames); $x++) {
 		if ($x != count($dataNames) -1) {
 			$sqlNames = $sqlNames . $dataNames[$x].", ";
-			$sqlValues = $sqlValues . "'" . $dataValues[$x] ."', "; 
+			$sqlValues = $sqlValues . "'" . $dataValues[$x] ."', ";
 		} else {
 			$sqlNames = $sqlNames . $dataNames[$x]. ") VALUES (";
 			$sqlValues = $sqlValues . "'" . $dataValues[$x] . "')";

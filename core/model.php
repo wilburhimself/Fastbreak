@@ -185,10 +185,14 @@
 
         public function save($data) {
             if (!empty($data['id'])) {
+                if (property_exists($this, 'updated_at')) {
+                    $data['updated_at'] = time();
+                }
                 $this->id = $data['id'];
                 unset($data['id']);
                 return $this->update($data);
             } else {
+                $data['created_at'] = time();
                 return $this->create($data);
             }
         }
