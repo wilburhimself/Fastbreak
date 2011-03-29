@@ -3,16 +3,15 @@
 <html>
     <head>
         <meta charset="utf-8" />
-        <title>Fastbreak | Welcome Aboard</title>
+        <title>Developer RD</title>
         <?php print add_css('master'); ?>
     </head>
     <body>
         <div id="wrap">
-
             <div id="main-content">
                 <div id="header">
-                    <h1><?php print anchor('Trabajos de tecnología', ''); ?></h1>
-                    <p>Your Fastbreak application is running.</p>
+                    <h1><?php print anchor('Developers RD', ''); ?></h1>
+                    <?php print anchor('Agregar nuevo trabajo', 'jobs/create', 'id="new-job"'); ?>
                 </div>
                 <div id="instructions">
                     <?php print $yield; ?>
