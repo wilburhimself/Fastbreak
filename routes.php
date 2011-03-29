@@ -1,5 +1,5 @@
 <?php
-    define('DEFAULT_CONTROLLER', 'index');
+    define('DEFAULT_CONTROLLER', 'Index');
     $routes = array(
         
     );

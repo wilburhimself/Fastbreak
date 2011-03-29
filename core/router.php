@@ -31,7 +31,7 @@ class router {
             include $file;
         }
         
-        $cont = 'controller_'.$this->controller;
+        $cont = $this->controller;
         $controller = new $cont;
         $controller->clas = $this->controller;
         $controller->view = $this->controller.DIRECTORY_SEPARATOR.$this->action;
@@ -93,7 +93,7 @@ class router {
         if(!isset($this->route_parts[0])) {
             $this->controller = DEFAULT_CONTROLLER;
         } else {
-            $this->controller = $this->route_parts[0];
+            $this->controller = ucwords($this->route_parts[0]);
             unset($this->route_parts[0]);
         }
     }
